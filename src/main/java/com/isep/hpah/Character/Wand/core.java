@@ -1,2 +1,4 @@
-package com.isep.hpah.Character.Wand;public class core {
+package com.isep.hpah.Character.Wand;
+
+public enum core {
 }

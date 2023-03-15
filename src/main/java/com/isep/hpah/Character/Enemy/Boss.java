@@ -1,2 +1,4 @@
-package com.isep.hpah.Character.Enemy;public class Boss {
+package com.isep.hpah.Character.Enemy;
+
+public class Boss {
 }

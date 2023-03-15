@@ -1,2 +1,4 @@
-package com.isep.hpah.Character.Wand;public class wand {
+package com.isep.hpah.Character.Wand;
+
+public class wand {
 }

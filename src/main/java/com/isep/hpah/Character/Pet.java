@@ -1,2 +1,4 @@
-package com.isep.hpah.Character;public enum Pet {
+package com.isep.hpah.Character;
+
+public enum Pet {
 }

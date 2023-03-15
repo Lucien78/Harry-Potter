@@ -1,2 +1,4 @@
-package com.isep.hpah.Character.AbsSpell;public class Spell {
+package com.isep.hpah.Character.AbsSpell;
+
+public class Spell {
 }

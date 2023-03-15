@@ -1,2 +1,4 @@
-package com.isep.hpah.Character;public class House {
+package com.isep.hpah.Character;
+
+public class House {
 }
