@@ -14,7 +14,7 @@ import java.util.Random;
         );
 
         public static House assignHouse() {
-            Random rand = new Random();
-            return HOUSES.get(rand.nextInt(HOUSES.size()));
+            Random random = new Random();
+            return HOUSES.get(random.nextInt(HOUSES.size()));
         }
     }
