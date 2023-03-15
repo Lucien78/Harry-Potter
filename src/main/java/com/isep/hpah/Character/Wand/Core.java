@@ -1,4 +1,4 @@
 package com.isep.hpah.Character.Wand;
 
-public class wand {
+public enum Core {
 }
