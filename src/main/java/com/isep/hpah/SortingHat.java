@@ -1,4 +1,20 @@
 package com.isep.hpah;
+import com.isep.hpah.Character.House;
 
-public class SortingHat {
-}
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+    public class SortingHat {
+        private static final List<House> HOUSES = Arrays.asList(
+                House.GRYFFINDOR,
+                House.HUFFLEPUFF,
+                House.RAVENCLAW,
+                House.SLYTHERIN
+        );
+
+        public static House assignHouse() {
+            Random rand = new Random();
+            return HOUSES.get(rand.nextInt(HOUSES.size()));
+        }
+    }
