@@ -24,6 +24,9 @@ public class Wizard {
     private int strength;
     private int defense;
     private int precision;
+    public void addSpell(Spell spell) {
+        spells.add(spell);
+    }
 
     public Wizard(String name) {
         this.name = name;
@@ -36,6 +39,16 @@ public class Wizard {
         this.defense = 10;
         this.precision = 10;
     }
+    public void takeDamage(int damage) {
+        this.hp -= damage;
+        if (this.hp < 0) {
+            this.hp= 0;
+        }
+        System.out.println(this.name + " a maintenant " + this.hp + " points de vie.");
+    }
+
+
 
     // Autres méthodes pour attaquer, défendre, utiliser des potions, etc.
 }
+
