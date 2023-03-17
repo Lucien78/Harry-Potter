@@ -45,7 +45,7 @@ public class Game {
             combat.enemyAttack();
 
             // Vérifiez les conditions de fin de combat, comme la mort du Wizard ou du boss
-            if (wizard.getHp() <= 0) {
+            if (wizard.getHp() <= 10) {
                 System.out.println("Vous avez perdu le combat.");
                 combatEnded = true;
             } else if (boss.getHp() <= 0) {
@@ -54,7 +54,10 @@ public class Game {
             }
         }
     }
-
+    static int currentYear=1;
+    public static void nextYear() {
+        currentYear++;
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -66,7 +69,7 @@ public class Game {
         wizard.setPet(Pet.assignPet());
         wizard.setWand(Wand.createRandomWand());
 
-        int currentYear = 1;
+
 
         // Ajouter les sorts pour l'année en cours
         List<Spell> spellsForYear = Spell.getSpellsByYear(currentYear);
@@ -84,14 +87,34 @@ public class Game {
         }
 
         // Vous pouvez ajouter ici la logique du jeu, comme les combats, les niveaux, etc.
-        System.out.println("Année 1 : Affrontez le Troll des toilettes !");
-        Boss boss = Boss.createBoss(currentYear);
+
 
         // Lancer le combat
         System.out.println("Année " + currentYear + " - Combat contre le boss :");
-        
 
-        startCombat(wizard, boss);
+
+        while (currentYear <= 7) {
+            System.out.println("Année " + currentYear + " commence...");
+            System.out.println("Année " + currentYear +" : Affrontez le Troll des toilettes !");
+            Boss boss = Boss.createBoss(currentYear);
+
+            // ... lancez le combat et vérifiez si le joueur a gagné ou perdu ...
+            startCombat(wizard, boss);
+            if(wizard.getHp()<=0){
+                wizard.setHp(100);
+                System.out.println("Vous avez perdu. Essayez à nouveau !");
+                startCombat(wizard, boss);
+
+            }
+
+            if (wizard.getHp()>0) {
+                nextYear();
+            } else {
+                System.out.println("Vous avez perdu. Essayez à nouveau !");
+                // ... relancez le combat ou terminez le jeu ...
+            }
+        }
+
 
     }
 
