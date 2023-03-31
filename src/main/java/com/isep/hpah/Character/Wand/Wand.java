@@ -15,17 +15,18 @@ public class Wand {
             "Corne de Serpent cornu",
             "Corne de Basilic"
     );
-    private double length;
+    private int length;
     private String core;
 
-    public Wand(double length, String core) {
+    public Wand(int length, String core) {
         this.length = length;
         this.core = core;
     }
 
     public static Wand createRandomWand() {
         Random random = new Random();
-        double randomLength = 25 + random.nextDouble() * 15;
+        double randomLength1 = 25 + random.nextDouble() * 15;
+        int randomLength = (int)randomLength1;
         String randomCore = CORES.get(random.nextInt(CORES.size()));
         return new Wand(randomLength, randomCore);
     }

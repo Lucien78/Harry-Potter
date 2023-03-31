@@ -12,48 +12,6 @@ import java.util.Scanner;
 
 
 public class Game {
-    public static void startCombat(Wizard wizard, Boss boss) {
-        Scanner scanner = new Scanner(System.in);
-        Combat combat = new Combat(wizard, boss);
-        boolean combatEnded = false;
-
-        System.out.println("Un combat commence ! " + wizard.getName() + " affronte " + boss.getName() + ".");
-
-        while (!combatEnded) {
-            System.out.println("Que voulez-vous faire ?");
-            System.out.println("1. Attaquer");
-            System.out.println("2. Utiliser une potion");
-            System.out.println("3. Fuir");
-
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    combat.attack();
-                    break;
-                case 2:
-                    combat.usePotion();
-                    break;
-                case 3:
-
-                    break;
-                default:
-                    System.out.println("Choix invalide. Veuillez réessayer.");
-                    continue;
-            }
-
-            combat.enemyAttack();
-
-            // Vérifiez les conditions de fin de combat, comme la mort du Wizard ou du boss
-            if (wizard.getHp() <= 10) {
-                System.out.println("Vous avez perdu le combat.");
-                combatEnded = true;
-            } else if (boss.getHp() <= 0) {
-                System.out.println("Vous avez gagné le combat !");
-                combatEnded = true;
-            }
-        }
-    }
     static int currentYear=1;
     public static void nextYear() {
         currentYear++;
@@ -99,11 +57,11 @@ public class Game {
             Boss boss = Boss.createBoss(currentYear);
 
             // ... lancez le combat et vérifiez si le joueur a gagné ou perdu ...
-            startCombat(wizard, boss);
+            new Combat(wizard, boss);
             if(wizard.getHp()<=0){
                 wizard.setHp(100);
                 System.out.println("Vous avez perdu. Essayez à nouveau !");
-                startCombat(wizard, boss);
+                new Combat(wizard, boss);
 
             }
 
